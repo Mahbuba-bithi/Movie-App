@@ -1,24 +1,19 @@
 "use client";
 
 import { MdLightMode, MdDarkMode } from "react-icons/md";
-import { useTheme } from "next-themes";
-
-import React, { useEffect, useState } from "react";
+import { useAppTheme } from "@/provider";
 
 const DarkModeSwitch = () => {
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const { theme, setTheme, mounted } = useAppTheme();
 
   return (
     <button
       type="button"
       aria-label="Toggle dark mode"
-      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className="text-xl cursor-pointer hover:text-amber-500"
     >
-      {mounted && resolvedTheme === "dark" ? <MdLightMode /> : <MdDarkMode />}
+      {mounted && theme === "dark" ? <MdLightMode /> : <MdDarkMode />}
     </button>
   );
 };
