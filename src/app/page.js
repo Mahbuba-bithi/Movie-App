@@ -21,6 +21,8 @@ export default async function Home({ searchParams }) {
       ? `/movie/top_rated`
       : `/trending/all/week`;
 
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   const res = await fetch(
     `https://api.themoviedb.org/3${endpoint}?api_key=${API_KEY}&language=en-US&page=1`,
     { cache: 'no-store' }
