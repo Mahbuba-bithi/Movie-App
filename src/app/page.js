@@ -1,5 +1,6 @@
 import Result from "@/components/Result";
 import FilterButtons from "@/components/FilterButtons";
+import SearchBox from "@/components/SearchBox";
 
 const API_KEY = process.env.API_KEY;
 
@@ -43,6 +44,7 @@ export default async function Home({ searchParams }) {
           <h1 className="text-3xl font-bold text-slate-900">{category} Movies</h1>
           <p className="mt-2 text-sm text-slate-600">Showing {results.length} items.</p>
         </div>
+        <SearchBox />
         <FilterButtons />
         <Result results={results} />
       </div>
