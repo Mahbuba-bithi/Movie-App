@@ -27,7 +27,7 @@ export default async function SearchPage({ params }) {
       ) : (
         <>
           <h1 className="text-lg sm:text-2xl font-bold mb-4 sm:mb-6">
-            Search results for "{searchTerm}"
+            Search results for &quot;{searchTerm}&quot;
           </h1>
 
           <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-5">

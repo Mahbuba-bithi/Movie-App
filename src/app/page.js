@@ -1,6 +1,7 @@
 import Result from "@/components/Result";
 import FilterButtons from "@/components/FilterButtons";
 import SearchBox from "@/components/SearchBox";
+import SuggestedSection from "@/components/SuggestedSection";
 
 const API_KEY = process.env.API_KEY;
 
@@ -38,15 +39,16 @@ export default async function Home({ searchParams }) {
   const results = Array.isArray(data?.results) ? data.results : [];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
       <div className="mx-auto max-w-6xl px-4 py-8">
-        <div className="mb-6 rounded-3xl bg-white px-6 py-5 shadow-sm">
-          <h1 className="text-3xl font-bold text-slate-900">{category} Movies</h1>
-          <p className="mt-2 text-sm text-slate-600">Showing {results.length} items.</p>
+        <div className="mb-6 rounded-3xl bg-white px-6 py-5 shadow-sm dark:bg-slate-800 dark:text-slate-100">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">{category} Movies</h1>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Showing {results.length} items.</p>
         </div>
         <SearchBox />
         <FilterButtons />
         <Result results={results} />
+        <SuggestedSection />
       </div>
     </div>
   );
